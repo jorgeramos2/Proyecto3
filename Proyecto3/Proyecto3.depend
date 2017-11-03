@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1509676220 source:c:\users\jorge\documents\github\proyecto3\proyecto3\main.cpp
+	<iostream>
+	"Servicio.h"
+
+1509676302 c:\users\jorge\documents\github\proyecto3\proyecto3\servicio.h
+
