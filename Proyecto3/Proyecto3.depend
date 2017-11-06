@@ -1,7 +1,10 @@
 # depslib dependency file v1.0
-1509676220 source:c:\users\jorge\documents\github\proyecto3\proyecto3\main.cpp
+1509989130 source:c:\users\jorge\documents\github\proyecto3\proyecto3\main.cpp
 	<iostream>
-	"Servicio.h"
+	"Empresa.h"
 
 1509676302 c:\users\jorge\documents\github\proyecto3\proyecto3\servicio.h
+
+1509989622 c:\users\jorge\documents\github\proyecto3\proyecto3\empresa.h
+	"Servicio.h"
 
