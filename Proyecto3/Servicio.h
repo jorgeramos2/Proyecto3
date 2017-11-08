@@ -1,5 +1,8 @@
 #ifndef SERVICIO_H_INCLUDED
 #define SERVICIO_H_INCLUDED
+/// La clase Servicio es una clase abstracta que contiene los metodos abstractos
+/// muestra y calcula costo , tambien contiene metodos de acceso y modificacion
+/// para cada uno de sus atributos
 using namespace std;
 class Servicio{
 public:
@@ -16,6 +19,7 @@ void setTipo(char tipo);
 virtual void muestra()=0;
 virtual double calculaCosto()=0;
 protected:
+///Atributos
 string clave;
 char tipo;
 };

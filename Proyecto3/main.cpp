@@ -2,7 +2,9 @@
 #include"Empresa.h"
 #include"Hogar.h"
 using namespace std;
-
+///Proyecto #3
+///Jorge Ramos y Alexis Virgen
+///11/7/2017
 int main()
 {
 int opcion;

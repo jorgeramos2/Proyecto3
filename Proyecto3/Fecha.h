@@ -1,7 +1,11 @@
 #ifndef FECHA_H_INCLUDED
 #define FECHA_H_INCLUDED
+/// La clase Fecha contiene metodos de acceso y modificacion para todos sus atributos
+/// al igual contiene una sobrecarga que sirve para sumarle dias a un objeto tipo fecha
+/// y para poder utilizar objetos de tipo Fecha con cin y cout.
 class Fecha{
 public:
+///Constructores
 Fecha();
 Fecha(int,int,int);
 /// Metodos de acceso
@@ -13,11 +17,12 @@ void setDia(int dia);
 void setMes(int mes);
 void setAnio(int anio);
 private:
+///Atributos
 int dia;
 int mes;
 int anio;
 };
-
+///Constructores
 Fecha::Fecha()
 {
     dia=0;

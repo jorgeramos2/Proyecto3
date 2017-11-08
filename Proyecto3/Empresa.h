@@ -1,6 +1,9 @@
 #ifndef EMPRESA_H_INCLUDED
 #define EMPRESA_H_INCLUDED
 #include"Servicio.h"
+/// La clase Empresa es una clase derivada de la clase Servicio. Implementa
+/// los metodos abstractos muestra y calcula costo , tambien contiene metodos
+/// acceso y modificacion para cada uno de sus atributos
 using namespace std;
 class Empresa:public Servicio{
 public:
@@ -22,6 +25,7 @@ void muestra();
 double calculaCosto();
 
 private:
+///Atributos
 double costoXMes;
 int cantPersonas;
 string descripcion;

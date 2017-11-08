@@ -1,6 +1,9 @@
 #ifndef HOGAR_H_INCLUDED
 #define HOGAR_H_INCLUDED
 #include"Servicio.h"
+/// La clase Hogar es una clase derivada de la clase Servicio. Implementa
+/// los metodos abstractos muestra y calcula costo , tambien contiene metodos
+/// acceso y modificacion para cada uno de sus atributos
 using namespace std;
 class Hogar:public Servicio{
 public:
@@ -17,6 +20,7 @@ void setDescripcion(string descripcion);
 void muestra();
 double calculaCosto();
 private:
+///Atributos
 double costoXDia;
 string descripcion;
 };
