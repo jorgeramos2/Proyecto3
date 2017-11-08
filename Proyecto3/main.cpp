@@ -1,5 +1,6 @@
 #include <iostream>
 #include"Empresa.h"
+#include"Hogar.h"
 using namespace std;
 
 int main()

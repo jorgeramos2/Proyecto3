@@ -28,8 +28,19 @@ string descripcion;
 double adicional;
 };
 ///Constructores
-
-
+Empresa::Empresa()
+{
+    costoXMes=0;
+    cantPersonas=0;
+    adicional=0;
+}
+Empresa::Empresa(double getcostoXMes,int cantPersonas,string descripcion,double adicional)
+{
+this->costoXMes=costoXMes;
+this->cantPersonas=cantPersonas;
+this->descripcion=descripcion;
+this->adicional=adicional;
+}
 ///Metodos de acceso
 double Empresa::getcostoXMes()
 {
@@ -63,5 +74,14 @@ void Empresa::setDescripcion(string descripcion)
 void Empresa::setAdicional(double adicional)
 {
   this->adicional=adicional;
+}
+///Metodos Virtuales
+void Empresa::muestra()
+{
+
+}
+double Empresa::calculaCosto()
+{
+
 }
 #endif // EMPRESA_H_INCLUDED
