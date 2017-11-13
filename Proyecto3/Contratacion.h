@@ -1,10 +1,11 @@
 #ifndef CONTRATACION_H_INCLUDED
 #define CONTRATACION_H_INCLUDED
+#include"Fecha.h"
 using namespace std;
 class Contratacion{
 public:
 ///Constructores
-Contratacion();
+Contratacion(string clave,int idCliente,Fecha fechaContrato,int diasDuracion);
 ///Metodos de acceso
 string getClave();
 int getIdCliente();
@@ -13,14 +14,23 @@ int getdiasDuracion();
 void setClave(string clave);
 void setIdCliente(int idCliente);
 void setdiasDUracion(int diasDuracion);
+///Metodos
+
 private:
 ///Atributos
 string clave;
 int idCliente;
+Fecha fechaContrato;
 int diasDuracion;
 };
 ///Constructores
-
+Contratacion::Contratacion(string clave,int idCliente,Fecha fechaContrato,int diasDuracion)
+{
+    this->clave=clave;
+    this->idCliente=idCliente;
+    this->fechaContrato=fechaContrato;
+    this->diasDuracion=diasDuracion;
+}
 ///Metodos de acceso
 string Contratacion::getClave()
 {

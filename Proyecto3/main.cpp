@@ -1,6 +1,7 @@
 #include <iostream>
 #include"Empresa.h"
 #include"Hogar.h"
+#include"Contratacion.h"
 using namespace std;
 ///Proyecto #3
 ///Jorge Ramos y Alexis Virgen
