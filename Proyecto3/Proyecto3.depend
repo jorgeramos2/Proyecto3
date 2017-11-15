@@ -1,14 +1,21 @@
 # depslib dependency file v1.0
-1510100585 source:c:\users\jorge\documents\github\proyecto3\proyecto3\main.cpp
+1510539489 source:c:\users\jorge\documents\github\proyecto3\proyecto3\main.cpp
 	<iostream>
 	"Empresa.h"
 	"Hogar.h"
+	"Contratacion.h"
 
-1509676302 c:\users\jorge\documents\github\proyecto3\proyecto3\servicio.h
+1510720656 c:\users\jorge\documents\github\proyecto3\proyecto3\servicio.h
+	"Contratacion.h"
 
-1510099487 c:\users\jorge\documents\github\proyecto3\proyecto3\empresa.h
+1510720812 c:\users\jorge\documents\github\proyecto3\proyecto3\empresa.h
 	"Servicio.h"
 
-1510100729 c:\users\jorge\documents\github\proyecto3\proyecto3\hogar.h
+1510720924 c:\users\jorge\documents\github\proyecto3\proyecto3\hogar.h
 	"Servicio.h"
+
+1510720346 c:\users\jorge\documents\github\proyecto3\proyecto3\contratacion.h
+	"Fecha.h"
+
+1510103384 c:\users\jorge\documents\github\proyecto3\proyecto3\fecha.h
 

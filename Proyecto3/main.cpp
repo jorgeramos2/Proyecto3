@@ -2,6 +2,7 @@
 #include"Empresa.h"
 #include"Hogar.h"
 #include"Contratacion.h"
+#include"Servicio.h"
 using namespace std;
 ///Proyecto #3
 ///Jorge Ramos y Alexis Virgen

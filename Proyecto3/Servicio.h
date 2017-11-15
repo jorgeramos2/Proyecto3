@@ -1,10 +1,11 @@
 #ifndef SERVICIO_H_INCLUDED
 #define SERVICIO_H_INCLUDED
+#include"Contratacion.h"
 /// La clase Servicio es una clase abstracta que contiene los metodos abstractos
 /// muestra y calcula costo , tambien contiene metodos de acceso y modificacion
 /// para cada uno de sus atributos
 using namespace std;
-class Servicio{
+class Servicio:public Contratacion{
 public:
 ///Constructores
 Servicio();
@@ -17,19 +18,15 @@ void setClave(string clave);
 void setTipo(char tipo);
 ///Metodos virtuales
 virtual void muestra()=0;
-virtual double calculaCosto()=0;
+virtual double calculaCosto(int diasDuracion)=0;
 protected:
 ///Atributos
 string clave;
 char tipo;
 };
 ///Constructores
-Servicio::Servicio()
-{
-    clave="nada";
-    tipo=0;
-}
-Servicio::Servicio(string clave,char tipo)
+
+Servicio::Servicio(string clave,char tipo):Contratacion(clave,idCliente,fechaContrato,diasDuracion)
 {
     this->clave=clave;
     this->tipo=tipo;
