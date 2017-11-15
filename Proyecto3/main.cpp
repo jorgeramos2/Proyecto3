@@ -2,11 +2,14 @@
 #include"Empresa.h"
 #include"Hogar.h"
 #include"Contratacion.h"
-#include"Servicio.h"
+
 using namespace std;
 ///Proyecto #3
 ///Jorge Ramos y Alexis Virgen
 ///11/7/2017
+/// Este programa simula una empresa provedora de telecomunicaciones. El programa permite consultar
+/// los servicios disponibles , las contrataciones, las contrataciones de un servicio, las contrataciones en una fecha especifica
+/// y realizar una contratacion de un servicio.
 int main()
 {
 int opcion;

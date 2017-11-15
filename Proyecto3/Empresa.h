@@ -77,10 +77,22 @@ void Empresa::setAdicional(double adicional)
 ///Metodos Virtuales
 void Empresa::muestra()
 {
-
+cout<<"Tipo de servicio : Empresa"<<endl;
+cout<<"Detalles  "<<descripcion<<endl;
+cout<<"Costo(mes):  "<<costoXMes<<endl;
+cout<<"Costo adicional por persona  "<<adicional<<endl;
+cout<<"Clave:  "<<clave;
+cout<<"Tipo:  "<<tipo;
 }
 double Empresa::calculaCosto()
 {
-
+ if (cantPersonas>200)
+ {
+ return (adicional*(cantPersonas-200)+costoXMes);
+ }
+else
+{
+    return costoXMes;
+}
 }
 #endif // EMPRESA_H_INCLUDED
