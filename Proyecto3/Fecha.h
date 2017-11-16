@@ -16,6 +16,9 @@ int getAnio();
 void setDia(int dia);
 void setMes(int mes);
 void setAnio(int anio);
+/// Sobrecarga del operador +
+friend void operator + (Fecha f1, int d);
+
 private:
 ///Atributos
 int dia;
@@ -61,5 +64,47 @@ void Fecha::setAnio(int anio)
 {
     this->anio=anio;
 }
+
+void operator + (Fecha f1, int d)
+{
+    f1.dia+=d;
+    while (f1.mes > 12 || ((!f1.mes%2==0 && f1.dia > 31) || (f1.mes%2==0 && f1.dia > 30) || (f1.mes==2 && f1.dia > 28))){
+        if (!f1.mes%2==0){
+            if (f1.dia > 31){
+            f1.mes++;
+            f1.dia-=31;
+            }
+        if (f1.mes > 12)
+            f1.mes-=12;
+        }
+        else if (f1.mes%2==0 && f1.mes != 2){
+            if (f1.dia > 30){
+            f1.mes++;
+            f1.dia-=30;
+            }
+        if (f1.mes > 12)
+            f1.mes-=12;
+        }
+        else {
+            if(((f1.anio % 4 == 0)&&(f1.anio % 100 != 0) )||((f1.anio % 400 == 0)&&(f1.anio % 4 == 0))){
+                if (f1.dia > 29){
+                f1.mes++;
+                f1.dia-=29;
+                }
+                if (f1.mes > 12)
+                f1.mes-=12;
+            }
+            else {
+                if (f1.dia > 28){
+                f1.mes++;
+                f1.dia-=28;
+                }
+                if (f1.mes > 12)
+                f1.mes-=12;
+            }
+        }
+    }  
+}
+
 
 #endif // FECHA_H_INCLUDED
