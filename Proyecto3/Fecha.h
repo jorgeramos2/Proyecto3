@@ -3,6 +3,8 @@
 /// La clase Fecha contiene metodos de acceso y modificacion para todos sus atributos
 /// al igual contiene una sobrecarga que sirve para sumarle dias a un objeto tipo fecha
 /// y para poder utilizar objetos de tipo Fecha con cin y cout.
+#include <iostream>
+using namespace std;
 class Fecha{
 public:
 ///Constructores
@@ -18,6 +20,10 @@ void setMes(int mes);
 void setAnio(int anio);
 /// Sobrecarga del operador +
 friend void operator + (Fecha f1, int d);
+/// Sobrecarga del operador <<
+friend ostream& operator<< (ostream& stream, Fecha& f);
+/// Sobrecarga del operador >>
+friend istream& operator>> (istream& stream, Fecha& f);
 
 private:
 ///Atributos
@@ -106,5 +112,18 @@ void operator + (Fecha f1, int d)
     }  
 }
 
+ostream& operator<<(ostream& os, Fecha& f)
+{
+    os << f.dia << "/" << f.mes << f.anio;
+    return os;
+}
+
+istream& operator>>(istream& input,Fecha& f)
+{
+    input >> f.dia;
+    input >> f.mes;
+    input >> f.anio;
+    return input;
+}
 
 #endif // FECHA_H_INCLUDED

@@ -25,7 +25,10 @@ double costoXDia;
 string descripcion;
 };
 ///Constructores
-
+Hogar::Hogar():Servicio(){
+	costoXDia = 0;
+	descripcion = "";
+}
 Hogar::Hogar(double costoXDia,string descripcion):Servicio(clave,tipo)
 {
     this->costoXDia=costoXDia;

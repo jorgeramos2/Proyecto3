@@ -1,6 +1,5 @@
 #include <iostream>
-#include"Empresa.h"
-#include"Hogar.h"
+#include "Servicio.h"
 #include"Contratacion.h"
 
 using namespace std;
@@ -12,6 +11,8 @@ using namespace std;
 /// y realizar una contratacion de un servicio.
 int main()
 {
+Servicio *servicio[10];
+Contratacion contrataciones[20];
 int opcion;
  do {
   cout << endl
@@ -28,7 +29,9 @@ cin >> opcion;
 switch (opcion)
 {
 case 1:
-
+	cout << "Lista de servicios: " << endl;
+	for (int i = 0; i < 10;i++)
+		servicio[i]->muestra();
 break;
 case 2:
 

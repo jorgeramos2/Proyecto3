@@ -9,6 +9,7 @@ class Contratacion{
 public:
 ///Constructores
 Contratacion(string clave,int idCliente,Fecha fechaContrato,int diasDuracion);
+Contratacion();
 ///Metodos de acceso
 string getClave();
 int getIdCliente();
@@ -33,6 +34,12 @@ Contratacion::Contratacion(string clave,int idCliente,Fecha fechaContrato,int di
     this->idCliente=idCliente;
     this->fechaContrato=fechaContrato;
     this->diasDuracion=diasDuracion;
+}
+Contratacion::Contratacion()
+{
+    clave = "";
+    idCliente = 0;
+    diasDuracion = 0;
 }
 ///Metodos de acceso
 string Contratacion::getClave()
@@ -63,6 +70,8 @@ void Contratacion::setdiasDUracion(int diasDuracion)
 ///Metodos
 Fecha Contratacion::calcularFinContrato()
 {
-
+    Fecha fechaFin = fechaContrato;
+    fechaFin + diasDuracion;
+    return fechaFin;
 }
 #endif // CONTRATACION_H_INCLUDED

@@ -25,8 +25,11 @@ string clave;
 char tipo;
 };
 ///Constructores
-
-Servicio::Servicio(string clave,char tipo):Contratacion(clave,idCliente,fechaContrato,diasDuracion)
+Servicio::Servicio():Contratacion(){
+	clave = "";
+	tipo = 0;
+}
+Servicio::Servicio(string clave,char tipo):Contratacion(clave,0,Fecha(),0)
 {
     this->clave=clave;
     this->tipo=tipo;
@@ -49,4 +52,6 @@ void Servicio::setTipo(char tipo)
 {
     this->tipo=tipo;
 }
+
+
 #endif // SERVICIO_H_INCLUDED
