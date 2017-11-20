@@ -18,7 +18,7 @@ void setcostoXDia(double costoXDia);
 void setDescripcion(string descripcion);
 ///Metodos virtuales
 void muestra();
-double calculaCosto(int diasDuracion);
+double calculaCosto();
 private:
 ///Atributos
 double costoXDia;
@@ -61,7 +61,7 @@ cout<<"Costo(dia):  "<<costoXDia<<endl;
 cout<<"Clave:  "<<clave;
 cout<<"Tipo:  "<<tipo;
 }
-double Hogar::calculaCosto(int diasDuracion)
+double Hogar::calculaCosto()
 {
 return diasDuracion*costoXDia;
 }

@@ -74,4 +74,5 @@ Fecha Contratacion::calcularFinContrato()
     fechaFin + diasDuracion;
     return fechaFin;
 }
+
 #endif // CONTRATACION_H_INCLUDED
