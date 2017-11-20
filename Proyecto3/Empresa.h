@@ -16,7 +16,7 @@ int getcantPersonas();
 string getDescripcion();
 double getAdicional();
 ///Metodos de modificaicon
-void setcostoXMes(double costoXMes);
+void setCosto(double costoXMes);
 void setcantPersonas(int cantPersonas);
 void setDescripcion(string descripcion);
 void setAdicional(double adicional);
@@ -38,7 +38,7 @@ Empresa::Empresa():Servicio(){
 	descripcion = "";
 	adicional = 0;
 }
-Empresa::Empresa(double getcostoXMes,int cantPersonas,string descripcion,double adicional):Servicio(clave,tipo)
+Empresa::Empresa(double costoXMes,int cantPersonas,string descripcion,double adicional):Servicio(clave,tipo)
 {
 this->costoXMes=costoXMes;
 this->cantPersonas=cantPersonas;
@@ -63,7 +63,7 @@ double Empresa::getAdicional()
     return adicional;
 }
 ///Metodos de modificacion
-void Empresa::setcostoXMes(double costoXMes)
+void Empresa::setCosto(double costoXMes)
 {
     this->costoXMes=costoXMes;
 }
@@ -86,8 +86,9 @@ cout<<"Tipo de servicio : Empresa"<<endl;
 cout<<"Detalles  "<<descripcion<<endl;
 cout<<"Costo(mes):  "<<costoXMes<<endl;
 cout<<"Costo adicional por persona  "<<adicional<<endl;
-cout<<"Clave:  "<<clave;
-cout<<"Tipo:  "<<tipo;
+cout<<"Clave:  "<<clave << endl;
+cout<<"Tipo:  "<<tipo << endl;
+cout << endl;
 }
 double Empresa::calculaCosto()
 {

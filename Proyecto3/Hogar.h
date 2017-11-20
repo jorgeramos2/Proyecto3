@@ -14,11 +14,11 @@ Hogar(double,string);
 double getcostoXDia();
 string getDescripcion();
 ///Metodos de modificacion
-void setcostoXDia(double costoXDia);
+void setCostoXDia(double costoXDia);
 void setDescripcion(string descripcion);
 ///Metodos virtuales
 void muestra();
-double calculaCosto();
+double calculaCosto(double dias);
 private:
 ///Atributos
 double costoXDia;
@@ -44,7 +44,7 @@ string Hogar::getDescripcion()
     return descripcion;
 }
 ///Metodos de modificacion
-void Hogar::setcostoXDia(double costoXDia)
+void Hogar::setCostoXDia(double costoXDia)
 {
  this->costoXDia=costoXDia;
 }
@@ -61,7 +61,7 @@ cout<<"Costo(dia):  "<<costoXDia<<endl;
 cout<<"Clave:  "<<clave;
 cout<<"Tipo:  "<<tipo;
 }
-double Hogar::calculaCosto()
+double Hogar::calculaCosto(double diasDuracion)
 {
 return diasDuracion*costoXDia;
 }

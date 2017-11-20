@@ -17,7 +17,8 @@ int getdiasDuracion();
 ///Metodos de modificacion
 void setClave(string clave);
 void setIdCliente(int idCliente);
-void setdiasDUracion(int diasDuracion);
+void setDiasDuracion(int diasDuracion);
+void setFecha(int,int,int);
 ///Metodos
 Fecha calcularFinContrato();
 protected:
@@ -63,7 +64,7 @@ void Contratacion::setIdCliente(int idCliente)
 {
     this->idCliente=idCliente;
 }
-void Contratacion::setdiasDUracion(int diasDuracion)
+void Contratacion::setDiasDuracion(int diasDuracion)
 {
     this->diasDuracion=diasDuracion;
 }
@@ -73,6 +74,12 @@ Fecha Contratacion::calcularFinContrato()
     Fecha fechaFin = fechaContrato;
     fechaFin + diasDuracion;
     return fechaFin;
+}
+
+void Contratacion::setFecha(int d,int m,int a){
+    fechaContrato.setDia(d);
+    fechaContrato.setMes(m);
+    fechaContrato.setAnio(a);
 }
 
 #endif // CONTRATACION_H_INCLUDED

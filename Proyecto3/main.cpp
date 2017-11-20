@@ -19,33 +19,31 @@ Servicio *servicio[10];
 ifstream openfile,openfile2;
 string palabra;
 int cont = 0, espacio = 0,num2;
-double num = 0.0;
 stringstream ss;
 openfile.open("Servicio.txt");
 while (!openfile.eof()){
-	int cont = 0, espacio = 0;
-	double num = 0.0;
+	int cantP;
+	double adicional = 0.0,costo;
+	string desc, clave;
+	char tipo;
 	stringstream ss;
 	getline(openfile,palabra);
 		if(palabra[6] == 'V' || palabra[6] == 'D' || palabra[6] == 'N'){
-			servicio[cont] = new Empresa;
 			for (int i = 0;i < palabra.length();i++){
 				if (palabra[i] == ' ')
 					espacio = i;
 			}
 			ss << palabra.substr(espacio);
-			ss >> num;
-			servicio[cont]->setAdicional(num);
+			ss >> adicional;
 			ss.clear();
 			palabra.erase(espacio);
-			servicio[cont]->setClave(palabra.substr(0,5));
-			servicio[cont]->setTipo(palabra[6]);
+			clave = palabra.substr(0,5);
+			tipo = palabra[6];
 			palabra.erase(0,8);
 			for (int i = 0; i < palabra.length();i++){
 				if (palabra[i] == ' '){
 					ss << palabra.substr(0,i);
-					ss >> num;
-					servicio[cont]->setcostoXMes(num);
+					ss >> costo;
 					ss.clear();
 					espacio = i;
 				}
@@ -54,31 +52,34 @@ while (!openfile.eof()){
 			for (int i = 0; i < palabra.length();i++){
 				if (palabra[i] == ' '){
 					ss << palabra.substr(0,i);
-					ss >> num2;
-					servicio[cont]->setcantPersonas(num2);
+					ss >> cantP;
 					ss.clear();
 					espacio = i;
 				}
 			}
 			palabra.erase(0,espacio);
-			servicio[cont]->setDescripcion(palabra);
+			desc = palabra;
+			servicio[cont] = new Empresa(costo, cantP, desc, adicional);
+			servicio[cont]->setClave(clave);
+			servicio[cont]->setTipo(tipo);
 		}
 		else{
-			servicio[cont] = new Hogar;
-			servicio[cont]->setClave(palabra.substr(0,5));
-			servicio[cont]->setTipo(palabra[6]);
+			clave = palabra.substr(0,5);
+			tipo = palabra[6];
 			palabra.erase(0,8);
 			for (int i = 0; i < palabra.length();i++){
 				if (palabra[i] == ' '){
 					ss << palabra.substr(0,i);
-					ss >> num;
-					servicio[cont]->setCostoXDia(num);
+					ss >> costo;
 					ss.clear();
 					espacio = i;
 				}
 			}
 			palabra.erase(0,espacio);
-			servicio[cont]->setDescripcion(palabra);
+			desc = palabra;
+			servicio[cont] = new Hogar(costo, desc);
+			servicio[cont]->setClave(clave);
+			servicio[cont]->setTipo(tipo);
 		}
 		cont++;
 }	
@@ -87,6 +88,7 @@ Contratacion contrataciones[20];
 openfile2.open("Contratacion.txt");
 cont = 0;
 while (!openfile.eof()){
+	int dia, mes, año;
 	getline(openfile,palabra);
 	contrataciones[cont].setClave(palabra.substr(0,5));
 	palabra.erase(0,6);
@@ -103,8 +105,7 @@ while (!openfile.eof()){
 	for (int i = 0; i < palabra.length();i++){
 		if (palabra[i] == ' '){
 			ss << palabra.substr(0,i);
-			ss >> num2;
-			contrataciones[cont].setIdCliente(num2);
+			ss >> dia;
 			ss.clear();
 			espacio = i;
 		}
@@ -113,12 +114,27 @@ while (!openfile.eof()){
 	for (int i = 0; i < palabra.length();i++){
 		if (palabra[i] == ' '){
 			ss << palabra.substr(0,i);
-			ss >> num2;
-			contrataciones[cont].setDia(num2);
+			ss >> mes;
 			ss.clear();
 			espacio = i;
 		}
 	}
+	palabra.erase(0,espacio);
+	for (int i = 0; i < palabra.length();i++){
+		if (palabra[i] == ' '){
+			ss << palabra.substr(0,i);
+			ss >> año;
+			ss.clear();
+			espacio = i;
+		}
+	}
+	palabra.erase(0,espacio);
+	contrataciones[cont].setFecha(dia,mes,año);
+	ss << palabra;
+	ss >> num2;
+	ss.clear();
+	contrataciones[cont].setDiasDuracion(num2);
+	cont++;
 }
 int opcion;
  do {

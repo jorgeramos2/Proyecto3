@@ -18,7 +18,7 @@ void setClave(string clave);
 void setTipo(char tipo);
 ///Metodos virtuales
 virtual void muestra()=0;
-virtual double calculaCosto()=0;
+virtual double calculaCosto(double diasDuracion)=0;
 protected:
 ///Atributos
 string clave;
