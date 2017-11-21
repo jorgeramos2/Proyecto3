@@ -162,9 +162,12 @@ case 2:
 		cout << "Clave del servicio: " << contrataciones[i].getClave() << endl;
 		cout << "Id del cliente: " << contrataciones[i].getIdCliente() << endl;
 		cout << "Fecha de inicio: " << endl;
-		contrataciones[i].getFecha();
+		Fecha f1;
+		f1 = contrataciones[i].getFecha();
+		cout << f1;
 		cout << "Fecha fin de contrato: "<< endl;
-	//	cout << contrataciones[i].calcularFinContrato();
+		f1 = contrataciones[i].calcularFinContrato();
+		cout << f1;
 		cout << endl;
 	}
 break;
@@ -179,9 +182,12 @@ case 3:
 		if(s == contrataciones[i].getClave()){
 			cout << "Id del cliente: " << contrataciones[i].getIdCliente() << endl;
 			cout << "Fecha de contrato: ";
-			contrataciones[i].getFecha();
+			Fecha f1;
+			f1 = contrataciones[i].getFecha();
+			cout << f1;
 			cout << "Fecha fin de contrato: "<< endl;
-	//		cout << contrataciones[i].calcularFinContrato();	
+			f1 = contrataciones[i].calcularFinContrato();	
+			cout << f1;
 		}
 	}
 break;
@@ -190,9 +196,9 @@ case 4:
 	cin >> dia >> mes >> anio;
 	for(int i = 0;i < cont;i++){
 		if (contrataciones[i].checarFecha(dia,mes,anio)){
-			for(int i = 0;i < obj;i++){
-				if(servicio[i]->getClave() == contrataciones[i].getClave()){
-					servicio[i]->muestra();
+			for(int j = 0;j < obj;j++){
+				if(servicio[j]->getClave() == contrataciones[i].getClave()){
+					servicio[j]->muestra();
 				}
 			}
 		}

@@ -19,7 +19,7 @@ void setDia(int dia);
 void setMes(int mes);
 void setAnio(int anio);
 /// Sobrecarga del operador +
-friend void operator + (Fecha f1, int d);
+void operator + (int d);
 /// Sobrecarga del operador <<
 friend ostream& operator<< (ostream& stream, Fecha& f);
 /// Sobrecarga del operador >>
@@ -71,47 +71,46 @@ void Fecha::setAnio(int anio)
     this->anio=anio;
 }
 
-void operator + (Fecha f1, int d)
+void  Fecha::operator + (int d)
 {
-    f1.dia+=d;
-    while (f1.mes > 12 || ((!f1.mes%2==0 && f1.dia > 31) || (f1.mes%2==0 && f1.dia > 30) || (f1.mes==2 && f1.dia > 28))){
-        if (!f1.mes%2==0){
-            if (f1.dia > 31){
-            f1.mes++;
-            f1.dia-=31;
+    dia+=d;
+    while (mes > 12 || ((!mes%2==0 && dia > 31) || (mes%2==0 && dia > 30) || (mes==2 && dia > 28))){
+        if (!mes%2==0){
+            if (dia > 31){
+                mes++;
+                dia-=31;
             }
-        if (f1.mes > 12)
-            f1.mes-=12;
+        if (mes > 12)
+            mes-=12;
         }
-        else if (f1.mes%2==0 && f1.mes != 2){
-            if (f1.dia > 30){
-            f1.mes++;
-            f1.dia-=30;
+        else if (mes%2==0 && mes != 2){
+            if (dia > 30){
+                mes++;
+                dia-=30;
             }
-        if (f1.mes > 12)
-            f1.mes-=12;
+        if (mes > 12)
+            mes-=12;
         }
         else {
-            if(((f1.anio % 4 == 0)&&(f1.anio % 100 != 0) )||((f1.anio % 400 == 0)&&(f1.anio % 4 == 0))){
-                if (f1.dia > 29){
-                f1.mes++;
-                f1.dia-=29;
+             if(anio % 4 == 0 && (anio % 100 != 0 || anio % 400 == 0)){
+                if (dia > 29){
+                mes++;
+                dia-=29;
                 }
-                if (f1.mes > 12)
-                f1.mes-=12;
+                if (mes > 12)
+                mes-=12;
             }
             else {
-                if (f1.dia > 28){
-                f1.mes++;
-                f1.dia-=28;
+                if (dia > 28){
+                    mes++;
+                    dia-=28;
                 }
-                if (f1.mes > 12)
-                f1.mes-=12;
+                if (mes > 12)
+                mes-=12;
             }
         }
-    }  
+    } 
 }
-
 ostream& operator<<(ostream& os, Fecha& f)
 {
     os << f.dia << "/" << f.mes << "/" <<f.anio << endl;

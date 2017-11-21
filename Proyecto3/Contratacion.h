@@ -14,7 +14,7 @@ Contratacion();
 string getClave();
 int getIdCliente();
 int getdiasDuracion();
-void getFecha();
+Fecha getFecha();
 bool checarFecha(int,int,int);
 ///Metodos de modificacion
 void setClave(string clave);
@@ -84,14 +84,15 @@ void Contratacion::setFecha(int d,int m,int a){
     fechaContrato.setAnio(a);
 }
 
-void Contratacion::getFecha(){
-    cout << fechaContrato.getDia() << "/";
-    cout << fechaContrato.getMes() << "/";
-    cout << fechaContrato.getAnio() << endl;
+Fecha Contratacion::getFecha(){
+    return fechaContrato;
 }
 
 bool Contratacion::checarFecha(int d,int m,int a){
-    return d == fechaContrato.getDia() && m == fechaContrato.getMes() && a == fechaContrato.getAnio();
+    if (d == fechaContrato.getDia() && m == fechaContrato.getMes() && a == fechaContrato.getAnio())
+        return true;
+    else
+        return false;
 }
 
 #endif // CONTRATACION_H_INCLUDED
