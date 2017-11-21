@@ -1,7 +1,5 @@
 #include <iostream>
 #include <sstream>
-#include "Servicio.h"
-#include "Contratacion.h"
 #include <fstream>
 #include "Empresa.h"
 #include "Hogar.h"
@@ -17,8 +15,9 @@ int main()
 {
 Servicio *servicio[10];
 ifstream openfile,openfile2;
-string palabra;
-int cont = 0, espacio = 0,num2;
+string palabra,s;
+int cont = 0, espacio = 0,num2,obj;
+int dia, mes, anio;
 stringstream ss;
 openfile.open("Servicio.txt");
 while (!openfile.eof()){
@@ -40,7 +39,7 @@ while (!openfile.eof()){
 			clave = palabra.substr(0,5);
 			tipo = palabra[6];
 			palabra.erase(0,8);
-			for (int i = 0; i < palabra.length();i++){
+			for (int i = 0; i < 7;i++){
 				if (palabra[i] == ' '){
 					ss << palabra.substr(0,i);
 					ss >> costo;
@@ -49,7 +48,7 @@ while (!openfile.eof()){
 				}
 			}
 			palabra.erase(0,espacio);
-			for (int i = 0; i < palabra.length();i++){
+			for (int i = 0; i < 5;i++){
 				if (palabra[i] == ' '){
 					ss << palabra.substr(0,i);
 					ss >> cantP;
@@ -67,7 +66,7 @@ while (!openfile.eof()){
 			clave = palabra.substr(0,5);
 			tipo = palabra[6];
 			palabra.erase(0,8);
-			for (int i = 0; i < palabra.length();i++){
+			for (int i = 0; i < 5;i++){
 				if (palabra[i] == ' '){
 					ss << palabra.substr(0,i);
 					ss >> costo;
@@ -82,17 +81,17 @@ while (!openfile.eof()){
 			servicio[cont]->setTipo(tipo);
 		}
 		cont++;
+		obj = cont;
 }	
 openfile.close();
 Contratacion contrataciones[20];
 openfile2.open("Contratacion.txt");
 cont = 0;
-while (!openfile.eof()){
-	int dia, mes, año;
-	getline(openfile,palabra);
+while (!openfile2.eof()){
+	getline(openfile2,palabra);
 	contrataciones[cont].setClave(palabra.substr(0,5));
 	palabra.erase(0,6);
-	for (int i = 0; i < palabra.length();i++){
+	for (int i = 0; i < 3;i++){
 		if (palabra[i] == ' '){
 			ss << palabra.substr(0,i);
 			ss >> num2;
@@ -101,8 +100,8 @@ while (!openfile.eof()){
 			espacio = i;
 		}
 	}
-	palabra.erase(0,espacio);
-	for (int i = 0; i < palabra.length();i++){
+	palabra.erase(0,espacio+1);
+	for (int i = 0; i < 3;i++){
 		if (palabra[i] == ' '){
 			ss << palabra.substr(0,i);
 			ss >> dia;
@@ -110,8 +109,8 @@ while (!openfile.eof()){
 			espacio = i;
 		}
 	}
-	palabra.erase(0,espacio);
-	for (int i = 0; i < palabra.length();i++){
+	palabra.erase(0,espacio+1);
+	for (int i = 0; i < 3;i++){
 		if (palabra[i] == ' '){
 			ss << palabra.substr(0,i);
 			ss >> mes;
@@ -119,31 +118,32 @@ while (!openfile.eof()){
 			espacio = i;
 		}
 	}
-	palabra.erase(0,espacio);
-	for (int i = 0; i < palabra.length();i++){
+	palabra.erase(0,espacio+1);
+	for (int i = 0; i < 5;i++){
 		if (palabra[i] == ' '){
 			ss << palabra.substr(0,i);
-			ss >> año;
+			ss >> anio;
 			ss.clear();
 			espacio = i;
 		}
 	}
-	palabra.erase(0,espacio);
-	contrataciones[cont].setFecha(dia,mes,año);
+	palabra.erase(0,espacio+1);
+	contrataciones[cont].setFecha(dia,mes,anio);
 	ss << palabra;
 	ss >> num2;
 	ss.clear();
 	contrataciones[cont].setDiasDuracion(num2);
 	cont++;
 }
+openfile2.close();
 int opcion;
  do {
   cout << endl
 << " 1 - Consultar la lista de Servicios.\n"
 << " 2 - Consultar la lista de contrataciones.\n"
 << " 3 - Consultar las contrataciones de un servicio dado.\n"
-<< " 4 - Consulta las contrataciones de una fecha específica.\n"
-<< " 5 - Hacer una contratación.\n"
+<< " 4 - Consulta las contrataciones de una fecha especifica.\n"
+<< " 5 - Hacer una contratacion.\n"
 << " 6 - Terminar\n"
 
 << " Ingrese su opcion : ";
@@ -153,17 +153,50 @@ switch (opcion)
 {
 case 1:
 	cout << "Lista de servicios: " << endl;
-	for (int i = 0; i < 10;i++)
+	for (int i = 0; i < obj;i++)
 		servicio[i]->muestra();
 break;
 case 2:
-
+	cout << "Lista de contrataciones: " << endl;
+	for(int i = 0;i < cont;i++){
+		cout << "Clave del servicio: " << contrataciones[i].getClave() << endl;
+		cout << "Id del cliente: " << contrataciones[i].getIdCliente() << endl;
+		cout << "Fecha de inicio: " << endl;
+		contrataciones[i].getFecha();
+		cout << "Fecha fin de contrato: "<< endl;
+	//	cout << contrataciones[i].calcularFinContrato();
+		cout << endl;
+	}
 break;
 case 3:
-
+	cout << "Clave del servicio?" << endl;
+	cin >> s;
+	for(int i = 0;i < obj;i++){
+		if(s == servicio[i]->getClave())
+			servicio[i]->muestra();
+	}
+	for(int i = 0;i < cont;i++){
+		if(s == contrataciones[i].getClave()){
+			cout << "Id del cliente: " << contrataciones[i].getIdCliente() << endl;
+			cout << "Fecha de contrato: ";
+			contrataciones[i].getFecha();
+			cout << "Fecha fin de contrato: "<< endl;
+	//		cout << contrataciones[i].calcularFinContrato();	
+		}
+	}
 break;
 case 4:
-
+	cout << "Fecha que se desea checar? (dd mm aaaa)" << endl;
+	cin >> dia >> mes >> anio;
+	for(int i = 0;i < cont;i++){
+		if (contrataciones[i].checarFecha(dia,mes,anio)){
+			for(int i = 0;i < obj;i++){
+				if(servicio[i]->getClave() == contrataciones[i].getClave()){
+					servicio[i]->muestra();
+				}
+			}
+		}
+	}
 break;
 case 5:
 

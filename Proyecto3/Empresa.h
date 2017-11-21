@@ -22,7 +22,7 @@ void setDescripcion(string descripcion);
 void setAdicional(double adicional);
 ///Metodos Virtuales
 void muestra();
-double calculaCosto();
+double calculaCosto(double);
 
 private:
 ///Atributos
@@ -38,7 +38,7 @@ Empresa::Empresa():Servicio(){
 	descripcion = "";
 	adicional = 0;
 }
-Empresa::Empresa(double costoXMes,int cantPersonas,string descripcion,double adicional):Servicio(clave,tipo)
+Empresa::Empresa(double costoXMes,int cantPersonas,string descripcion,double adicional):Servicio("",' ')
 {
 this->costoXMes=costoXMes;
 this->cantPersonas=cantPersonas;
@@ -85,12 +85,13 @@ void Empresa::muestra()
 cout<<"Tipo de servicio : Empresa"<<endl;
 cout<<"Detalles  "<<descripcion<<endl;
 cout<<"Costo(mes):  "<<costoXMes<<endl;
-cout<<"Costo adicional por persona  "<<adicional<<endl;
+cout<<"Costo adicional por persona: "<<adicional<<endl;
+cout<<"Cantidad de personas: " << cantPersonas<<endl;
 cout<<"Clave:  "<<clave << endl;
 cout<<"Tipo:  "<<tipo << endl;
-cout << endl;
+cout << endl << endl;
 }
-double Empresa::calculaCosto()
+double Empresa::calculaCosto(double s)
 {
  if (cantPersonas>200)
  {

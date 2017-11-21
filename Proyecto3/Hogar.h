@@ -29,7 +29,7 @@ Hogar::Hogar():Servicio(){
 	costoXDia = 0;
 	descripcion = "";
 }
-Hogar::Hogar(double costoXDia,string descripcion):Servicio(clave,tipo)
+Hogar::Hogar(double costoXDia,string descripcion):Servicio("",' ')
 {
     this->costoXDia=costoXDia;
     this->descripcion=descripcion;
@@ -55,11 +55,12 @@ void Hogar::setDescripcion(string descripcion)
 ///Metodos Virtuales
 void Hogar::muestra()
 {
-cout<<"Tipo de servicio : Hogar"<<endl;
-cout<<"Detalles  "<<descripcion<<endl;
+cout<<"Tipo de servicio: Hogar"<<endl;
+cout<<"Detalles: "<<descripcion<<endl;
 cout<<"Costo(dia):  "<<costoXDia<<endl;
-cout<<"Clave:  "<<clave;
-cout<<"Tipo:  "<<tipo;
+cout<<"Clave:  "<<clave << endl;
+cout<<"Tipo:  "<<tipo << endl;
+cout << endl << endl;
 }
 double Hogar::calculaCosto(double diasDuracion)
 {

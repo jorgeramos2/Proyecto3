@@ -114,7 +114,7 @@ void operator + (Fecha f1, int d)
 
 ostream& operator<<(ostream& os, Fecha& f)
 {
-    os << f.dia << "/" << f.mes << f.anio;
+    os << f.dia << "/" << f.mes << "/" <<f.anio << endl;
     return os;
 }
 
